@@ -1,5 +1,5 @@
 # jquery-shopping-cart
-## Building a basic jquery shopping cart project
+Building a basic jquery shopping cart project
 ## User Stories
 - User Story: I can view my total items on top of my page 
 - User Story: I can view all my items in my cart on same page 
