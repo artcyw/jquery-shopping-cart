@@ -1,6 +1,9 @@
+var url = "https://api.myjson.com/bins/3uuw7?callback=?";
+   
    $.ajax({
-      url: 'http://cmtepxress.com/projects/jsc/items.json',
-      data: 'json',
+            url: url,
+            type:"GET",
+            data: "json",
       success: function(data) {
       	console.log(data);
       		for (item in data){
@@ -10,5 +13,9 @@
  				$("#menu").append($new_item);
       		} 
       },
-      type: 'GET'
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+      }
    });
+
