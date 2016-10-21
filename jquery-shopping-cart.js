@@ -41,24 +41,29 @@ var items =
   }   
 
   function removeFromCart(){
-    alert("allen");
-    var itemID = $(this).data('item-id');
-    console.log(itemID);
-    $(this).remove();
-    if(cartItems[itemID]-- <= 0){
-      delete cartItems[itemID] 
-    }else {
-      cartItems[itemID]--;
-    }
-     $('#cart #total').text(totalCalc());   
-    
+ 
+  //   var itemID = itemID;
+    //$('.remove').on('click',function(){
+      var itemID = $(this).data('item-id');
+  //     //console.log($(this).parent());
+      console.log("iid "+itemID);
+      console.log("ci "+cartItems);
+      console.log("ci[id] "+cartItems[itemID]);
+      if(cartItems[itemID]-1 <= 0){
+        $(this).parent().remove();
+        delete cartItems[itemID]; 
+      }else {
+        cartItems[itemID]--;
+      }
+       $('#cart #total').text(totalCalc());   
+   // });
   }  
 
-  function addToCart(){
-    var itemID = $(this).data('item-id');
+  function addToCart(itemID){
+    //var itemID = arg.data('item-id');
     console.log(itemID);
       
-    var cartItem = "<li data-item-id='"+itemID+"'><div>Name: "+items[itemID-1].name+"</div><div>Price: "+items[itemID-1].price+"</div><a onclick='removeFromCart()' class='remove'><div>remove</div></a></li>";
+    var cartItem = "<li id='item-"+itemID+"'><div>Name: "+items[itemID-1].name+"</div><div>Price: "+items[itemID-1].price+"</div><a class='remove' data-item-id='"+itemID+"'><div>remove</div></a></li>";
     
     //};
     if(cartItems[itemID]){
@@ -70,19 +75,32 @@ var items =
     }
     $('#cart #total').text(totalCalc());
     console.log(cartItems);
-
+    //removeFromCart();
   }
 
   function totalCalc(){
+    var temp =0;
     for(var cartItem in cartItems ){
-      total +=  items[cartItem-1].price * cartItems[cartItem];
+      temp +=  items[cartItem-1].price * cartItems[cartItem];
     }
+    total = temp;
     return total;
   }
 
   listMenu();
 
-  $('.item').on('click',addToCart);
-  // $('.remove').on('click',removeFromCart);
+  $('.item').on('click',function(){
+    var itemID = $(this).data('item-id');
+    addToCart(itemID);
+  });
+
+      $(document).on('click','.remove',removeFromCart);
+
+  // $('.item').on('click',function(){
+
+
+  // });
+
+
 
 });   
