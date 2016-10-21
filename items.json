@@ -1,0 +1,17 @@
+{
+  "items":
+    [{
+      "id":1,
+      "name":"egg rolls",
+      "price": 5.99,
+      "description": "desc"
+    },
+    {
+      "id":2,
+      "name":"fired rice",
+      "price": 8.99,
+      "description": "desc"
+    }
+    ]
+  
+}
