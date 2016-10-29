@@ -1,0 +1,35 @@
+#menu{
+  border:1px solid red;
+  height:100vh;
+  font-size:150%;
+}
+#cart{
+  border:1px solid blue;
+  height:100vh;
+}
+
+h1{
+  text-align: center;
+}
+/*
+*{
+  border:1px solid green;
+}*/
+
+.text-r{
+  text-align: right;
+}
+
+.item{
+  background:#eee;
+  width:90%;
+  margin:10px auto;
+  text-transform: capitalize;
+
+}
+a{
+  color:black;
+}
+a:hover{
+  color:blue;
+}
